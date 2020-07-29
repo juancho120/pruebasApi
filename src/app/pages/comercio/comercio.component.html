@@ -1,0 +1,104 @@
+<h1>Comercio <small>Nombre del Comercio</small></h1>
+
+<div class="rob text-right">
+    <div class="col">
+        <button [routerLink]="['/comercios']"
+                class="btn btn-danger">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="guardar( f )"
+              #f='ngForm'>
+            <div class="form-group">
+                <label>ID Comercio</label>
+                <input type="text"
+                       class="form-control"
+                       disabled="disabled"
+                       placeholder="ID"
+                       [(ngModel)]="comercio.id"
+                       name="id">
+                <small class="form-text text-muted">Este campo es auto generado</small>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="Nombre del comercio"
+                       required
+                       [(ngModel)]="comercio.nombre"
+                       name="nombre">
+            </div>
+
+            <div class="form-group">
+                <label>Direccion</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="Direccion del comercio"
+                       [(ngModel)]="comercio.direccion"
+                       name="direccion">
+            </div>
+
+            <div class="form-group">
+                <label>usuario_id</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="usuario_id"
+                       [(ngModel)]="comercio.usuario_id"
+                       name="usuario_id">
+            </div>
+
+            <div class="form-group">
+                <label>localidad_id</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="localidad_id"
+                       [(ngModel)]="comercio.localidad_id"
+                       name="localidad_id">
+            </div>
+
+            <div class="form-group">
+                <label>rubro_comercio_id</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="rubro_comercio_id"
+                       [(ngModel)]="comercio.rubro_comercio_id"
+                       name="rubro_comercio_id">
+            </div>
+
+            <!-- <div class="form-group">
+                <label>Seliacos</label>
+                <br>
+                <button *ngIf="comercio.seliaco"
+                        (click)="comercio.seliaco = false" 
+                        class="btn btn-outline-success w-50" 
+                        type="button">
+                    <i class="fa fa-smile-wink"></i>
+                    Si
+                </button>
+                <button *ngIf="!comercio.seliaco"
+                        (click)="comercio.seliaco = true"
+                        class="btn btn-outline-danger w-50" 
+                        type="button">
+                    <i class="fa fa-dizzy"></i>
+                    No
+                </button>
+            </div> -->
+            
+            <hr>
+
+            <div class="form-group text-center">
+                <button type="submit"
+                        class="btn btn-primary w-25">
+                    <i class="fas fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
