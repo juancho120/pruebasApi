@@ -16,17 +16,17 @@
         <th scope="col">#</th>
         <th scope="col">Nombre</th>
         <th scope="col">Direccion</th>
-        <th scope="col">Productos Seliacos</th>
-        <th scope="col"></th>
+        <!-- <th scope="col">Productos Seliacos</th> -->
+        <!-- <th scope="col"></th> -->
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+      <tr *ngFor="let comercio of comercios">
+        <th scope="row">{{ comercio.id }}</th>
+        <td>{{ comercio.nombre }}</td>
+        <td>{{ comercio.direccion }}</td>
+        <!-- <td>@mdo</td> -->
+        <!-- <td>@mdo</td> -->
       </tr>
     </tbody>
   </table>

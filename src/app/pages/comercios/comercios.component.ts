@@ -16,8 +16,9 @@ export class ComerciosComponent implements OnInit {
   ngOnInit(): void {
 
     this.comerciosService.getComercios()
-        .subscribe( resp=> {
-          console.log(resp)
+        .subscribe( response => {
+          this.comercios = response['data'];
+          console.log(this.comercios);
         })
 
   }
