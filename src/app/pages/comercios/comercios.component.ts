@@ -1,3 +1,5 @@
+import { ComercioModel } from 'src/app/models/comercio.model';
+import { ComerciosService } from './../../services/comercios.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComerciosComponent implements OnInit {
 
-  constructor() { }
+  comercios: ComercioModel[] = [];
+
+  constructor( private comerciosService: ComerciosService ) { }
 
   ngOnInit(): void {
+
+    this.comerciosService.getComercios()
+        .subscribe( resp=> {
+          console.log(resp)
+        })
+
   }
 
 }

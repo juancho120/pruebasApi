@@ -9,9 +9,9 @@ export class ComercioModel {
     updated_at: Date;
     deleted_at: Date;
 
-    /* seliaco: boolean;
+    celiaco: boolean;
 
     constructor() {
-        this.seliaco = true;
-    } */
+        this.celiaco = true;
+    }
 }
