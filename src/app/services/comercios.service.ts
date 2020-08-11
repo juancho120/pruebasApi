@@ -36,24 +36,5 @@ export class ComerciosService {
 
   getComercios(){
     return this.http.get(`${ this.url }/comercio`);
-              /* .pipe(
-                map( this.crearArreglo )
-              ) */
   }
-  
-  /* private crearArreglo( comerciosObj: object ){
-
-    const comercios: ComercioModel [] = [];
-
-    if ( comerciosObj === null ) { return []; }
-
-    Object.keys( comerciosObj ).forEach( key => {
-      const comercio: ComercioModel = comerciosObj[key];
-      comercio.id = parseInt(key);
-
-      comercio.push( comercio );
-    })
-    
-    return comercios;
-  } */
 }
