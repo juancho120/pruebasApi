@@ -1,3 +1,4 @@
+import { TipoVentasModel } from './../../models/comercio.model';
 import { Observable } from 'rxjs';
 import { ComerciosService } from './../../services/comercios.service';
 import { Component, OnInit } from '@angular/core';
@@ -5,6 +6,7 @@ import { ComercioModel } from 'src/app/models/comercio.model';
 import { NgForm } from '@angular/forms';
 
 import Swal from 'sweetalert2'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comercio',
@@ -15,9 +17,21 @@ export class ComercioComponent implements OnInit {
 
   comercio: ComercioModel = new ComercioModel();
 
-  constructor( private comerciosService: ComerciosService) { }
+  constructor( private comerciosService: ComerciosService,
+               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if ( id !== 'nuevo' ){
+      this.comerciosService.getComercio( id )
+          .subscribe( (resp: ComercioModel ) => {
+            this.comercio = resp['data'];
+            this.comercio.id = id ;
+          })
+    }
+
   }
 
   guardar ( form: NgForm) {
@@ -55,4 +69,10 @@ export class ComercioComponent implements OnInit {
     })
   }
 
+    
+  venta:TipoVentasModel[] = [
+    {id: '1', tipo: 'Celiacos'},
+    {id: '2', tipo: 'Diabeticos'},
+    {id: '3', tipo: 'Comunes'},
+  ]
 }

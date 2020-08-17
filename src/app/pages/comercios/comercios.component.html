@@ -16,17 +16,31 @@
         <th scope="col">#</th>
         <th scope="col">Nombre</th>
         <th scope="col">Direccion</th>
-        <!-- <th scope="col">Productos Seliacos</th> -->
-        <!-- <th scope="col"></th> -->
+        <th scope="col">Tiene Productos</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let comercio of comercios">
-        <th scope="row">{{ comercio.id }}</th>
+      <tr *ngFor="let comercio of comercios; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
         <td>{{ comercio.nombre }}</td>
         <td>{{ comercio.direccion }}</td>
-        <!-- <td>@mdo</td> -->
-        <!-- <td>@mdo</td> -->
+        <td>
+          <label *ngIf="comercio.tipo_venta_id === 1" class="badge badge-success">Celiacos</label>
+          <label *ngIf="comercio.tipo_venta_id === 2" class="badge badge-info">Diabeticos</label>
+          <label *ngIf="comercio.tipo_venta_id === 3" class="badge badge-dark">Comunes</label>
+        </td>
+        <td>
+          <button class="btn btn-info mr-1"
+                  [routerLink]="['/comercio', comercio.id]">
+            <i class="fas fa-pen"></i>
+          </button>
+
+          <button class="btn btn-danger"
+                  (click)="borrarComercio( comercio, i )">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

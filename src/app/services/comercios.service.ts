@@ -37,4 +37,12 @@ export class ComerciosService {
   getComercios(){
     return this.http.get(`${ this.url }/comercio`);
   }
+
+  getComercio( id: string){
+    return this.http.get(`${ this.url }/comercio/${ id }`);
+  }
+
+  borrarComercio( id: string ){
+    return this.http.delete(`${ this.url }/comercio/${ id }`);
+  }
 }
