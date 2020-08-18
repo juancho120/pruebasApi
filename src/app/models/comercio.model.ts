@@ -12,6 +12,6 @@ export class ComercioModel {
 }
 
 export class TipoVentasModel{
-    id: string;
+    id: number;
     tipo: string;
 }

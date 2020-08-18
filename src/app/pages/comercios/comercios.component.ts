@@ -11,15 +11,22 @@ import Swal from 'sweetalert2';
 export class ComerciosComponent implements OnInit {
 
   comercios: ComercioModel[] = [];
+  trash: ComercioModel[] = [];
 
   constructor( private comerciosService: ComerciosService ) { }
 
   ngOnInit(): void {
 
     this.comerciosService.getComercios()
-        .subscribe( response => {
-          this.comercios = response['data'];
+        .subscribe( resp => {
+          this.comercios = resp['data'];
           console.log(this.comercios);
+        })
+
+        this.comerciosService.trashComercio()
+        .subscribe( resp => {
+          this.trash = resp['data'];
+          console.log(this.trash);
         })
 
   }

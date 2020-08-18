@@ -12,7 +12,8 @@ export class ComerciosService {
   
   constructor( private http: HttpClient) { }
 
-  
+  // Crear un nuevo comercio
+
   crearComercio( comercio: ComercioModel ){
     return this.http.post(`${ this.url }/comercio`, comercio)
           .pipe(
@@ -22,6 +23,8 @@ export class ComerciosService {
             })
           );
   }
+
+  // Actualizar un comercio especifico por ID
 
   actualizarComercio( comercio: ComercioModel ){
 
@@ -34,15 +37,27 @@ export class ComerciosService {
     return this.http.put(`${ this.url }/comercio/${ comercio.id }`, comercioTemp);
   }
 
+  // Traer todos los comercios
+
   getComercios(){
     return this.http.get(`${ this.url }/comercio`);
   }
+
+  // Traer un comercio especifico por ID
 
   getComercio( id: string){
     return this.http.get(`${ this.url }/comercio/${ id }`);
   }
 
+  // Soft Delete, dar de baja un comercio
+
   borrarComercio( id: string ){
     return this.http.delete(`${ this.url }/comercio/${ id }`);
+  }
+
+  // Restaurar un comercio de baja
+
+  trashComercio(){
+    return this.http.get(`${ this.url }/trashed/comercio`);
   }
 }

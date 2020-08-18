@@ -45,6 +45,41 @@
     </tbody>
   </table>
 
+  <table class="table mt-3">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Tiene Productos</th>
+        <!-- <th scope="col"></th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let algo of trash; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ algo.nombre }}</td>
+        <td>{{ algo.direccion }}</td>
+        <td>
+          <label *ngIf="algo.tipo_venta_id === 1" class="badge badge-success">Celiacos</label>
+          <label *ngIf="algo.tipo_venta_id === 2" class="badge badge-info">Diabeticos</label>
+          <label *ngIf="algo.tipo_venta_id === 3" class="badge badge-dark">Comunes</label>
+        </td>
+        <!-- <td>
+          <button class="btn btn-info mr-1"
+                  [routerLink]="['/comercio', comercio.id]">
+            <i class="fas fa-pen"></i>
+          </button>
+
+          <button class="btn btn-danger"
+                  (click)="borrarComercio( comercio, i )">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+
   <div class="alert alert-warning text-center mt-3">
     <h4 class="alert-heading">No hay registros</h4>
     <p>

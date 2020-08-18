@@ -73,15 +73,18 @@
 
             <div class="form-group">
                 <label>Tipos de Productos</label>
-                <select type="number"
+                <select type="text"
                     class=" form-control"
                     placeholder="Tiene productos para"
                     [(ngModel)]="comercio.tipo_venta_id"
                     name="tipo_venta_id"
-                    required><option [ngValue]="venta.id" *ngFor="let venta of venta">{{ venta.tipo }}</option> 
+                    required><option [ngValue]="venta.id" 
+                                     *ngFor="let venta of venta" 
+                                     [selected]="comercio.tipo_venta_id == venta.id" 
+                                     >{{ venta.tipo }}</option> 
                 </select>
             </div>
-            
+
             <hr>
 
             <div class="form-group text-center">

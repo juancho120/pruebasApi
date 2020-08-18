@@ -71,8 +71,8 @@ export class ComercioComponent implements OnInit {
 
     
   venta:TipoVentasModel[] = [
-    {id: '1', tipo: 'Celiacos'},
-    {id: '2', tipo: 'Diabeticos'},
-    {id: '3', tipo: 'Comunes'},
+    {id: 1, tipo: 'Celiacos'},
+    {id: 2, tipo: 'Diabeticos'},
+    {id: 3, tipo: 'Comunes'},
   ]
 }
